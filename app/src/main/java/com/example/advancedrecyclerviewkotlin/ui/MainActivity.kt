@@ -1,9 +1,10 @@
-package com.example.advancedrecyclerviewkotlin
+package com.example.advancedrecyclerviewkotlin.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.advancedrecyclerviewkotlin.R
 import com.example.advancedrecyclerviewkotlin.model.ColorAdapter
 import com.example.advancedrecyclerviewkotlin.model.ColorItem
 import com.google.android.material.snackbar.Snackbar
