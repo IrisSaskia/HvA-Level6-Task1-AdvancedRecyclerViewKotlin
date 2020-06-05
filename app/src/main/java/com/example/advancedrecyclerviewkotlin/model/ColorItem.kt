@@ -1,4 +1,4 @@
-package com.example.advancedrecyclerviewkotlin.Model
+package com.example.advancedrecyclerviewkotlin.model
 
 data class ColorItem(
     var hex: String,
