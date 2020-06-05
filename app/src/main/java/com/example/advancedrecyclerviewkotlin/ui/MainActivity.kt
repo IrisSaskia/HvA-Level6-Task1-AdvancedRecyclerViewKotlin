@@ -2,6 +2,8 @@ package com.example.advancedrecyclerviewkotlin.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advancedrecyclerviewkotlin.R
@@ -20,12 +22,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         initViews()
+        initViewModel()
     }
 
     private fun initViews() {
         rvColors.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rvColors.adapter = colorAdapter
     }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProvider (this).get(MainActivityViewModel::class.java)
+
+        viewModel.colorItems.observe(this, Observer {
+            colors.clear()
+            colors.addAll(it)
+            colorAdapter.notifyDataSetChanged()
+        })
+    }
+
 
     private fun onColorClick(colorItem: ColorItem) {
         Snackbar.make(rvColors, "This color is: ${colorItem.name}", Snackbar.LENGTH_LONG).show()
